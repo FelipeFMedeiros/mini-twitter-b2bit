@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   /* Twitter Blue */
@@ -10,10 +11,10 @@
   --color-twitter-pink-hover: #e0156f;
 
   /* Dark Mode Colors */
-  --color-twitter-dark-background: #15202b;
-  --color-twitter-dark-background-secondary: #192734;
+  --color-twitter-dark-background: #070B14;
+  --color-twitter-dark-background-secondary: #1D293D;
   --color-twitter-dark-background-hover: #1c2938;
-  --color-twitter-dark-border: #38444d;
+  --color-twitter-dark-border: #62748E;
   --color-twitter-dark-text: #ffffff;
   --color-twitter-dark-text-secondary: #8b98a5;
 
