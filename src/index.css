@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  /* Twitter Blue */
+  --color-twitter-blue: #1d9bf0;
+  --color-twitter-blue-hover: #1a8cd8;
+
+  /* Twitter Pink */
+  --color-twitter-pink: #f91880;
+  --color-twitter-pink-hover: #e0156f;
+
+  /* Dark Mode Colors */
+  --color-twitter-dark-background: #15202b;
+  --color-twitter-dark-background-secondary: #192734;
+  --color-twitter-dark-background-hover: #1c2938;
+  --color-twitter-dark-border: #38444d;
+  --color-twitter-dark-text: #ffffff;
+  --color-twitter-dark-text-secondary: #8b98a5;
+
+  /* Light Mode Colors */
+  --color-twitter-light-background: #ffffff;
+  --color-twitter-light-background-secondary: #f7f9f9;
+  --color-twitter-light-background-hover: #eff3f4;
+  --color-twitter-light-border: #eff3f4;
+  --color-twitter-light-text: #0f1419;
+  --color-twitter-light-text-secondary: #536471;
+}
+
+@layer base {
+  * {
+    @apply border-twitter-light-border dark:border-twitter-dark-border;
+  }
+
+  body {
+    @apply bg-twitter-light-background text-twitter-light-text;
+    @apply dark:bg-twitter-dark-background dark:text-twitter-dark-text;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+}
+
+@layer components {
+  /* Primary Button - Twitter Blue */
+  .btn-primary {
+    @apply bg-twitter-blue hover:bg-twitter-blue-hover text-white font-bold py-3 px-6 rounded-full transition-colors;
+  }
+
+  /* Secondary Button - Outlined */
+  .btn-secondary {
+    @apply border-2 border-twitter-light-border dark:border-twitter-dark-border;
+    @apply hover:bg-twitter-light-background-hover dark:hover:bg-twitter-dark-background-hover;
+    @apply text-twitter-light-text dark:text-twitter-dark-text font-bold py-3 px-6 rounded-full transition-colors;
+  }
+
+  /* Post Button */
+  .btn-post {
+    @apply bg-twitter-blue hover:bg-twitter-blue-hover text-white font-bold py-2 px-4 rounded-full transition-colors;
+  }
+
+  /* Like Button */
+  .btn-like {
+    @apply text-twitter-pink hover:text-twitter-pink-hover transition-colors;
+  }
+
+  /* Input Field */
+  .input-field {
+    @apply w-full bg-transparent border-2 border-twitter-light-border dark:border-twitter-dark-border;
+    @apply rounded-md px-4 py-3 text-twitter-light-text dark:text-twitter-dark-text;
+    @apply placeholder:text-twitter-light-text-secondary dark:placeholder:text-twitter-dark-text-secondary;
+    @apply focus:border-twitter-blue focus:outline-none transition-colors;
+  }
+}
