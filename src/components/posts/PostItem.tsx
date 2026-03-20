@@ -68,14 +68,14 @@ export default function PostItem({ post, currentUserId, isAuthenticated, onLike,
                                 <button
                                     onClick={handleSave}
                                     disabled={!canSave}
-                                    className="text-green-500 hover:text-green-600 hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors p-1.5 rounded-full disabled:opacity-50"
+                                    className="text-green-500 hover:text-green-600 hover:bg-green-50 dark:hover:bg-green-900/20 transition-colors p-1.5 rounded-full disabled:opacity-50 hover:cursor-pointer"
                                     title="Salvar"
                                 >
                                     <Check size={18} />
                                 </button>
                                 <button
                                     onClick={handleCancel}
-                                    className="text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors p-1.5 rounded-full"
+                                    className="text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors p-1.5 rounded-full hover:cursor-pointer"
                                     title="Cancelar"
                                 >
                                     <X size={18} />
@@ -85,14 +85,14 @@ export default function PostItem({ post, currentUserId, isAuthenticated, onLike,
                             <>
                                 <button
                                     onClick={() => setIsEditing(true)}
-                                    className="text-gray-400 hover:text-twitter-blue hover:bg-twitter-blue/10 transition-colors p-1.5 rounded-full"
+                                    className="text-gray-400 hover:text-twitter-blue hover:bg-twitter-blue/10 transition-colors p-1.5 rounded-full hover:cursor-pointer"
                                     title="Editar Post"
                                 >
                                     <Pencil size={18} />
                                 </button>
                                 <button
                                     onClick={() => onDelete(post.id)}
-                                    className="text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors p-1.5 rounded-full"
+                                    className="text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors p-1.5 rounded-full hover:cursor-pointer"
                                     title="Deletar Post"
                                 >
                                     <Trash2 size={18} />
@@ -176,7 +176,7 @@ export default function PostItem({ post, currentUserId, isAuthenticated, onLike,
                         post.likedByMe
                             ? 'text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20'
                             : 'text-red-500 hover:bg-gray-100 dark:hover:bg-gray-800'
-                    } ${isEditing ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    } ${isEditing ? 'opacity-50 hover:cursor-not-allowed' : 'hover:cursor-pointer'}`}
                 >
                     <Heart
                         size={20}
