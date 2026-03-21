@@ -1,75 +1,58 @@
-# React + TypeScript + Vite
+# Mini Twitter Frontend - React & TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o front-end de uma mini rede social desenvolvida para o processo seletivo da B2Bit. O projeto foi construído com **React**, **TypeScript** e **Vite**, com foco em uma interface responsiva, boa experiência de usuário (UX) e código limpo.
 
-Currently, two official plugins are available:
+<p align="center">
+  <img src="./public/mini-twitter-light.gif" alt="Demonstração do Mini Twitter em Light Mode" width="48%" />
+  <img src="./public/mini-twitter-dark.gif" alt="Demonstração do Mini Twitter em Dark Mode" width="48%" />
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Tecnologias
 
-## React Compiler
+- **Framework**: React 19, TypeScript, Vite
+- **Estilização**: Tailwind CSS v4
+- **Gerenciamento de Estado**: Zustand
+- **Cache e Requisições**: React Query (TanStack Query), Axios
+- **Formulários**: React Hook Form, Zod
+- **Testes**: Vitest, React Testing Library, jsdom
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 🛠️ Funcionalidades e Pontos Importantes
 
-Note: This will impact Vite dev & build performances.
+- **Autenticação**: Fluxo de Login e Registro de usuários com gerenciamento de acesso.
+- **Posts**: Criação, listagem, alteração e exclusão de publicações. Apenas o próprio autor tem a permissão de alterar/excluir seus posts, com controle visual inteligente que adapta as opções da interface para cada usuário.
+- **Contorno de Limitação do Backend (Like Status)**: Devido o backend original não retornar via API o relacionamento permanente entre *quem* deu "like" e o post alvo, foi aplicado um modelo *Mock* de curadoria com persistência resiliente. O React interage com os metadados do `localStorage` para manter o botão e a animação de coração preenchido fidedignos para o usuário atual.
+- **Consumo da API Pública (Dog CEO)**: Funcionalidade extra para geração de imagens aleatórias de cachorros no momento de criar novos posts, com visualização em tempo real nativa via URL.
+- **Aprimorações Visuais e de Usabilidade**:
+  - Troca de tema inteligente (Light / Dark Mode).
+  - Implementação de modais de confirmação para melhorar a experiência de navegação do usuário.
+  - Limpeza de dados automática no modo de Cancelamento do post.
 
-## Expanding the ESLint configuration
+## 🧪 Testes Automatizados
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Houve a inclusão estratégica de testes baseados no padrão de projeto de **Colocation** (onde o arquivo local de teste habita próximo à sua contraparte original).
+Através do **Vitest** e do **React Testing Library**, a suíte unitária focou-se no componente de fundação `<Button />`, validando e monitorando regresso de: estilo, renderização estática, interceptação de eventos de clique e estados restritivos/ausentes.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Para averiguar/rodar essa suíte de testes pontualmente no seu terminal:
+```bash
+npm run test
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 💻 Conexão e Como Rodar Localmente
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Certifique-se de que a API [mini-twitter-backend-main](http://localhost:3000) já esteja ativa localmente (conforme as instruções do repositório backend que define a conexão na porta **3000**). O frontend comunicará com este serviço pela API Root URL ``http://localhost:3000``.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Siga os passos a seguir iniciar a aplicação localmente:
+
+```bash
+# 1. Instale as dependências
+npm install
+
+# 2. Inicie o servidor de desenvolvimento
+npm run dev
 ```
+
+A aplicação estará disponível em seu navegador pelo endereço local de conveniência do framework Vite:
+**[http://localhost:5173](http://localhost:5173)**
+
+---
+Desenvolvido por **@FelipeFMedeiros** para o processo seletivo da B2Bit.
