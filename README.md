@@ -44,10 +44,13 @@ Certifique-se de que a API [mini-twitter-backend-main](http://localhost:3000) j�
 Siga os passos a seguir iniciar a aplicação localmente:
 
 ```bash
-# 1. Instale as dependências
+# 1. Verifique se o Node.js está instalado (versão 20.0 ou superior recomendada):
+node -v
+
+# 2. Instale as dependências
 npm install
 
-# 2. Inicie o servidor de desenvolvimento
+# 3. Inicie o servidor de desenvolvimento
 npm run dev
 ```
 
